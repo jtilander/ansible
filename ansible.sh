@@ -10,7 +10,6 @@ DEBUG=${DEBUG:-0}
 WORKDIR=${WORKDIR:-$PWD}
 
 if [ "$DEBUG" == "1" ]; then
-
 	echo "# CWD: $WORKDIR"
 	echo "# ansible $@"
 fi
