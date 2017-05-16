@@ -14,9 +14,11 @@ if [ "$DEBUG" == "1" ]; then
 	echo "# ansible $@"
 fi
 
+CMD=`basename $0 .sh`
+
 docker run --rm -it \
 	-v $WORKDIR:/wd \
 	-e DEBUG=$DEBUG \
 	$IMAGE \
-	ansible \
+	$CMD \
 	"$@"
