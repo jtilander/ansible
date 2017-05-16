@@ -1,5 +1,5 @@
 IMAGENAME?=jtilander/ansible
-TAG?=test
+TAG?=latest
 
 ifeq (run,$(firstword $(MAKECMDGOALS)))
   RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))

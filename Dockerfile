@@ -15,10 +15,12 @@ RUN apk add --no-cache \
 		py-pip
 
 RUN pip --disable-pip-version-check --no-cache-dir install ansible
+RUN pip --disable-pip-version-check --no-cache-dir install "pywinrm>=0.2.2"
 
 RUN mkdir -p /wd && rmdir /root && ln -s /wd /root
 
 WORKDIR /wd
+ENV DEBUG=0
 
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
