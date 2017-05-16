@@ -6,7 +6,15 @@ RUN apk add --no-cache \
 #		curl \
 #		git \
 #		make \
-		ansible
+		gcc \
+		python \
+		python-dev \
+		musl-dev \
+		libffi-dev \
+		openssl-dev \
+		py-pip
+
+RUN pip --disable-pip-version-check --no-cache-dir install ansible
 
 RUN mkdir -p /wd && rmdir /root && ln -s /wd /root
 
