@@ -34,6 +34,19 @@ A minimal config will contain the following:
 
 
 
+## Windows notes
+
+
+CredSSP and TLS 1.2
+CredSSP requires the remote host to have TLS 1.2 configured or else the connection will fail. TLS 1.2 is installed by default from Server 2012 and Windows 8 onwards. For Server 2008, 2008 R2 and Windows 7 you can add TLS 1.2 support by:
+
+Installing the TLS 1.2 [update from Microsoft](https://support.microsoft.com/en-us/help/3080079/update-to-add-rds-support-for-tls-1.1-and-tls-1.2-in-windows-7-or-windows-server-2008-r2)
+Adding the TLS 1.2 registry keys as shown on [this page](https://technet.microsoft.com/en-us/library/dn786418.aspx#BKMK_SchannelTR_TLS12)
+
+
+
+
+
 ## TODO
 
 * Build the pip packages with an external docker image to minimize this image's size.

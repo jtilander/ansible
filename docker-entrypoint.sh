@@ -16,6 +16,20 @@ case "$1" in
 
 		exec /usr/bin/ansible "$@"
 		;;
+	playbook)
+		shift
+
+		if [ "$DEBUG" == "1" ]; then
+			for i in "$@"
+			do
+			    echo "ARG: $i"
+			done
+
+			echo "exec /usr/bin/ansible-playbook $@"
+		fi
+
+		exec /usr/bin/ansible-playbook "$@"
+		;;
 esac
 
 exec "$@"
