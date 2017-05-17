@@ -14,7 +14,7 @@ RUN apk add --no-cache \
 		openssl-dev \
 		py-pip
 
-RUN pip --disable-pip-version-check --no-cache-dir install pywinrm[credssp] ansible
+RUN pip --disable-pip-version-check --no-cache-dir install pywinrm[credssp] ansible ansible-lint
 
 RUN mkdir -p /wd && rmdir /root && ln -s /wd /root
 
