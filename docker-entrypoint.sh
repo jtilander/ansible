@@ -17,7 +17,7 @@ case "$1" in
 		exec /usr/bin/ansible "$@"
 		;;
 	
-	lint|playbook)
+	playbook)
 		COMMAND=$1
 		
 		shift
@@ -32,6 +32,25 @@ case "$1" in
 		fi
 
 		exec /usr/bin/ansible-$COMMAND "$@"
+		;;
+
+	lint)
+		COMMAND=$1
+		
+		shift
+
+		FIXED_ARGS="--exclude=galaxy" 
+
+		if [ "$DEBUG" == "1" ]; then
+			for i in "$@"
+			do
+			    echo "ARG: $i"
+			done
+
+			echo "exec /usr/bin/ansible-$COMMAND $FIXED_ARGS $@"
+		fi
+
+		exec /usr/bin/ansible-$COMMAND $FIXED_ARGS "$@"
 		;;
 
 	galaxy)
