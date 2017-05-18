@@ -3,18 +3,25 @@ MAINTAINER Jim Tilander
 
 RUN apk add --no-cache \
 		bash \
-#		curl \
-#		git \
-#		make \
 		gcc \
 		python \
 		python-dev \
+		musl \
+		libffi \
+		openssl \
 		musl-dev \
 		libffi-dev \
 		openssl-dev \
-		py-pip
-
-RUN pip --disable-pip-version-check --no-cache-dir install pywinrm[credssp] ansible ansible-lint
+		py-pip && \
+	\
+	pip --disable-pip-version-check --no-cache-dir install pywinrm[credssp] ansible ansible-lint && \
+	\
+	apk del --no-cache \
+		gcc \
+		python-dev \
+		musl-dev \
+		libffi-dev \
+		openssl-dev
 
 RUN mkdir -p /wd && rmdir /root && ln -s /wd /root
 
