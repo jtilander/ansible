@@ -17,7 +17,7 @@ case "$1" in
 		exec /usr/bin/ansible "$@"
 		;;
 	
-	playbook)
+	playbook|vault)
 		COMMAND=$1
 		
 		shift
